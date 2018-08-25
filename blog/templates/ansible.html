@@ -1,0 +1,125 @@
+{% extends 'asset.html' %}
+{% block page_header %}
+    <h1>
+        Ansible 管理
+        <small>Optional description</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+    </ol>
+{% endblock %}
+{% block menu %}
+    <li>
+
+        <a href="{{ url_for('main.asset') }}" class="btn btn-default">Ansible</a>
+    </li>
+    <li>
+        <a href="{{ url_for('main.idc') }}" class="btn btn-default">Shell</a>
+
+    </li>
+{% endblock %}
+{% block content %}
+    <div class="box">
+        <div class="row">
+            <div class="col-sm-12">
+                <div style="margin: 10px 0px 10px 0">
+                    <div class="col-md-5">
+                        <a>{{ yml }}</a>
+                        <p>
+                            <a>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#modal-add">同步数据
+                                </button>
+                            </a>
+                        </p>
+                        <div class="form-group">
+                            <label for="id_type">选择主机:</label>
+                            <select name="asset_host" style="width:330px;" class="form-control" id="id_host">
+                                <option value="" selected="">---------</option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="id_type">选择palybook:</label>
+                            <select name="asset_type" style="width:330px;" class="form-control" id="id_playbook">
+                                <option value="" selected="">---------</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group">
+                            <button id="command_submit" class="btn btn-primary"
+                                    style="width: 60pt; font-size: medium;" onclick="AnsibleRun()">执行
+                            </button>
+                        </div>
+                        <div class="box-header with-border">
+                            <h3 class="box-title">执行结果</h3>
+                        </div>
+                        <div class="box-body" id="cmd-res">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" style="float: right">
+                        <div class="form-group">
+                            <input type="hidden" name="csrfmiddlewaretoken"
+                                   value="vrqL8mzdoPn8f1y7D2MRvYoVtgbubhErX6FSoAsimOwXF8LQ4wT7LrjLxumCPf9H">
+                            <div class="form-group ">
+                                <label>Ansible Command</label>
+                                    <textarea style="padding-bottom: 15px;" id="mcommand" name="mcommand" rows="11"
+                                              class="form-control"
+                                              placeholder="use enter spilt and command like: ansible web -a 'ls'"></textarea>
+                            </div>
+                            <input id="command_submit" class="btn btn-primary"
+                                   style="width: 60pt; font-size: medium;" value="执行">
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </div>
+            </div>
+        </div>        <!-- nav-tabs-custom -->
+    </div>
+{% endblock %}
+
+
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            $.getJSON("http://127.0.0.1:5000/api/playbook", function (callback) {
+                console.log(callback);
+                for (var item in callback) {
+                    tmp = "<option>" + callback[item] + "</option>";
+                    $('#id_playbook').append(tmp)
+
+                }
+            });
+            $.getJSON("http://127.0.0.1:5000/api/business", function (callback) {
+                for (var item in callback) {
+                    tmp = "<option>" + callback[item]['name'] + "</option>";
+                    $('#busniss-select').append(tmp)
+
+                }
+            });
+            $.getJSON("http://127.0.0.1:5000/api/assets", function (callback) {
+                for (var item in callback) {
+                    console.log(item);
+                    tmp = "<option>" + callback[item]['hostname'] + "</option>";
+                    $('#id_host').append(tmp)
+                }
+            })
+        });
+        function AnsibleRun(obj) {
+            $.ajax({
+                url: "http://127.0.0.1:5000/api/playbook",
+                type: 'POST',
+                data: JSON.stringify({
+                    "hostname": $('#id_host').val(),
+                    "book": $('#id_playbook').val()
+                }),
+                success: function (data) {
+                    console.log(data)
+                    console.log('ok')
+                }
+            })
+        }
+    </script>
+{% endblock %}

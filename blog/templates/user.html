@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{#{% load custom %}#}
+{% block page_header %}
+    <h1>
+        用户管理
+        <small>Optional description</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+    </ol>
+{% endblock %}
+{% block content %}
+
+    <div class="box">
+        <div class="row">
+                <div class="alert alert-success alert-dismissible hidden" id="success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i> Success!</h4>
+                添加设备成功,5s后自动返回!!!
+            </div>
+            <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h3 class="modal-title" id="myModalLabel">添加用户</h3>
+                        </div>
+                        <div class="modal-body detail" style="margin: 10px">
+                            <p>
+                                <label for="id_hostname">用户名:</label>
+                                <input type="text" name="hostname" style="width:500px;height: 20px"
+                                       maxlength="50" required="" placeholder="必填项"
+                                       class="form-control" id="username">
+                            </p>
+                            <p>
+                                <label for="id_hostname">邮箱:</label>
+                                <input type="text" name="emil" style="width:500px;height: 20px"
+                                       maxlength="50" required="" placeholder="必填项"
+                                       class="form-control" id="email">
+                            </p>
+                            <p>
+                                <label for="id_hostname">密码:</label>
+                                <input type="text" name="hostname" style="width:500px;height: 20px"
+                                       maxlength="50" required="" placeholder="必填项"
+                                       class="form-control" id="password">
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" style="width: 60pt" data-dismiss="modal" onclick="Add(this)">提交
+                            </button>
+                            <button type="submit" class="btn btn-default" style="width: 60pt" data-dismiss="modal">返回</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div style="margin: 10px 0px 10px 0">
+                    <div class="col-sm-2" style="padding-left: 0">
+                        <a>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#modal-edit">添加用户</button>
+
+                        </a>
+                    </div>
+                </div>
+
+                <table class="table table-bordered table-hover dataTable"
+                       role="grid"
+                       aria-describedby="example2_info">
+
+                    <thead>
+                    <tr role="row">
+                        <th>ID</th>
+                        <th>用户名</th>
+                        <th>邮箱</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+
+                </table>
+
+
+            </div>
+        </div>        <!-- nav-tabs-custom -->
+    </div>
+{% endblock %}
+
+
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            $.getJSON("http://127.0.0.1:5000/api/user", function (callback) {
+                for (var item in callback) {
+                    var name = callback[item].username;
+                    var memo = callback[item].email;
+                    var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + name + "</td>" + "<td>" + memo + "</td>" +
+                        "<td id=" + item + ">" + '<a  class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
+                    $("tbody").append(html)
+
+                }
+            });
+
+
+        });
+
+        function Edit(obj) {
+            var id = $(obj).parent().attr('id')
+            $.ajax({
+                url: "http://127.0.0.1:5000/api/assets/" + id,
+                type: 'GET',
+                success: function (data) {
+                    $("#modal-edit").modal();
+                    var obj = data[id]
+                    console.log(obj)
+                    $('#host').text(obj.name);
+                    $('#ip').text(obj.management_ip);
+                    $('#idc_info').text(obj.idc)
+                    $('#time').text(obj.update_date);
+                    $('#sn').text(obj.sn);
+                }
+            })
+
+        }
+
+        function Add(obj) {
+            $.ajax({
+                url: "http://127.0.0.1:5000/api/user",
+                type: "POST",
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "username": $('#username').val(),
+                    "email": $('#email').val(),
+                    "password": $('#password').val()
+                }),
+                success: function (data) {
+                    $('#success').removeClass('hidden');
+                    location.reload();
+
+                }
+            })
+        }
+
+        function Del(obj) {
+            if (confirm("确定删除?")) {
+                var id = $(obj).parent().attr('id')
+                $('#del_asset').removeClass('hidden');
+                $.ajax({
+                    url: "http://127.0.0.1:5000/api/idc/" + id,
+                    type: 'DELETE',
+                    success: function (data) {
+                        console.log('ok')
+                        location.reload()
+
+                    }
+                })
+            }
+        }
+
+        function Search(obj) {
+            var data = $(obj).val();
+            var name = $(obj).attr('id')
+            if (data == 'default') {
+                var url = "http://127.0.0.1:5000/api/assets"
+            } else
+                var url = "http://127.0.0.1:5000/api/assets" + "?" + name + "=" + data
+            $('table tbody').empty();
+            $.getJSON(url, function (callback) {
+                var obj = callback
+                for (var item in obj) {
+                    var name = obj[item].name;
+                    var type = obj[item].type;
+                    var sn = obj[item].sn;
+                    var idc = obj[item].idc;
+                    var business = obj[item].business_unit;
+                    var status = obj[item].status;
+                    var update_date = obj[item].update_date;
+                    var html = "<tr>" + "<td>" + item + "</td>" + "<td>" + name + "</td>" + "<td>" + business + "</td>"
+                        + "<td>" + "root" + "</td>" + "<td>" + idc + "</td>" + "<td>" + status + "</td>" + "<td>" + update_date + "</td>" + "<td id=" + item + ">" + " <a id=" + item + " " + 'class="fa fa-edit" onclick="Edit(this)" style="margin: 3px"data-toggle="modal"data-target="#modal-edit" type="button"></a> <a class="fa fa-refresh" style="margin: 3px"></a> <a class="fa fa-remove" style="margin: 3px" onclick="Del(this)"></a>' + "</td>" + "</tr>"
+                    $("tbody").append(html)
+
+                }
+            })
+        }
+    </script>
+{% endblock %}

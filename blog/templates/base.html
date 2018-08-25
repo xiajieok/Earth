@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Blog Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+
+    <link href="{{ url_for('static', filename='css/blog.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="blog-masthead">
+    <div class="container">
+        <nav class="blog-nav">
+            <a class="blog-nav-item active" href="#">Home</a>
+            <a class="blog-nav-item" href="#">New features</a>
+            <a class="blog-nav-item" href="#">Press</a>
+            <a class="blog-nav-item" href="#">New hires</a>
+            <a class="blog-nav-item" href="#">About</a>
+        </nav>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="blog-header">
+        <h1 class="blog-title">The Bootstrap Blog</h1>
+        <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+                <div class="article well clearfix">
+                    <div class="data-article hidden-xs">
+                        <span class="month">03月</span>
+                        <span class="day">23</span>
+                    </div>
+                    <div class="title-article">
+                        <h1>
+                            <a class="blog-title" href="/post/632/">常见问题整理 </a></h1>
+                    </div>
+                    <div class="tag-article container">
+                        <span class="label label-zan"><i class="fa fa-tags"></i>其它 <a href="/post/632/" title="常见问题整理"
+                                                                                      rel="category tag"></a></span>
+                        <span class="label label-zan"><i class="fa fa-user"></i> <a href="#" title="由medivh发布"
+                                                                                    rel="author">jack</a></span>
+                        <span class="label label-zan"><i class="fa fa-eye"></i> <a>2</a> views</span>
+                    </div>
+                    <div class="content-article">
+                        <figure class="thumbnail"><a href="/post/632/"></a>
+                        </figure>
+                        <div class="alert alert-zan">
+                            整理了一些运维常识，以供参考
+                        </div>
+                    </div>
+                    <a class="btn btn-danger pull-right read-more" href="/post/632/" title="详细阅读  整理了一些运维常识，以供参考">阅读全文
+                        <span class="badge">2</span></a>
+                </div>
+                <div class="article well clearfix">
+                    <div class="data-article hidden-xs">
+                        <span class="month">02月</span>
+                        <span class="day">02</span>
+                    </div>
+                    <div class="title-article">
+                        <h1>
+                            <a class="blog-title" href="/post/631/">Kubernetes + Prometheus + Grafana 集群监控 </a></h1>
+                    </div>
+                    <div class="tag-article container">
+                        <span class="label label-zan"><i class="fa fa-tags"></i>kubernetes <a href="/post/631/"
+                                                                                              title="Kubernetes + Prometheus + Grafana 集群监控"
+                                                                                              rel="category tag"></a></span>
+                        <span class="label label-zan"><i class="fa fa-user"></i> <a href="#" title="由medivh发布"
+                                                                                    rel="author">jack</a></span>
+                        <span class="label label-zan"><i class="fa fa-eye"></i> <a>6</a> views</span>
+                    </div>
+                    <div class="content-article">
+                        <figure class="thumbnail"><a href="/post/631/"></a>
+                        </figure>
+                        <div class="alert alert-zan">
+                            Welcome to Prometheus! Prometheus is a monitoring platform that collects metrics from
+                            monitored targets by scraping metrics HTTP endpoints on these targets.
+                        </div>
+                    </div>
+                    <a class="btn btn-danger pull-right read-more" href="/post/631/"
+                       title="详细阅读  Welcome to Prometheus! Prometheus is a monitoring platform that collects metrics from monitored targets by scraping metrics HTTP endpoints on these targets. ">阅读全文
+                        <span class="badge">6</span></a>
+                </div>
+                <div class="article well clearfix">
+                    <div class="data-article hidden-xs">
+                        <span class="month">02月</span>
+                        <span class="day">01</span>
+                    </div>
+                    <div class="title-article">
+                        <h1>
+                            <a class="blog-title" href="/post/630/">Kubernetes+Harbor 自建仓库 </a></h1>
+                    </div>
+                    <div class="tag-article container">
+                        <span class="label label-zan"><i class="fa fa-tags"></i>kubernetes <a href="/post/630/"
+                                                                                              title="Kubernetes+Harbor 自建仓库"
+                                                                                              rel="category tag"></a></span>
+                        <span class="label label-zan"><i class="fa fa-user"></i> <a href="#" title="由medivh发布"
+                                                                                    rel="author">jack</a></span>
+                        <span class="label label-zan"><i class="fa fa-eye"></i> <a>7</a> views</span>
+                    </div>
+                    <div class="content-article">
+                        <figure class="thumbnail"><a href="/post/630/"></a>
+                        </figure>
+                        <div class="alert alert-zan">
+                            Harbor 是 Vmwar 公司开源的 企业级的 Docker Registry 管理项目 它主要 提供 Dcoker Registry 管理UI，可基于角色访问控制,
+                            AD/LDAP 集成，日志审核等功能，完全的支持中文。 Harbor 的所有组件都在 Dcoker 中部署，所以 Harbor 可使用 Docker Compose 快速部署。
+                        </div>
+                    </div>
+                    <a class="btn btn-danger pull-right read-more" href="/post/630/"
+                       title="详细阅读  Harbor 是 Vmwar 公司开源的 企业级的 Docker Registry 管理项目 它主要 提供 Dcoker Registry 管理UI，可基于角色访问控制, AD/LDAP 集成，日志审核等功能，完全的支持中文。 Harbor 的所有组件都在 Dcoker 中部署，所以 Harbor 可使用 Docker Compose 快速部署。">阅读全文
+                        <span class="badge">7</span></a>
+                </div>
+                <div class="article well clearfix">
+                    <div class="data-article hidden-xs">
+                        <span class="month">01月</span>
+                        <span class="day">29</span>
+                    </div>
+                    <div class="title-article">
+                        <h1>
+                            <a class="blog-title" href="/post/629/">kubernetes 扩展应用——auth </a></h1>
+                    </div>
+                    <div class="tag-article container">
+                        <span class="label label-zan"><i class="fa fa-tags"></i>kubernetes <a href="/post/629/"
+                                                                                              title="kubernetes 扩展应用——auth"
+                                                                                              rel="category tag"></a></span>
+                        <span class="label label-zan"><i class="fa fa-user"></i> <a href="#" title="由medivh发布"
+                                                                                    rel="author">jack</a></span>
+                        <span class="label label-zan"><i class="fa fa-eye"></i> <a>31</a> views</span>
+                    </div>
+                    <div class="content-article">
+                        <figure class="thumbnail"><a href="/post/629/"></a>
+                        </figure>
+                        <div class="alert alert-zan">
+                            This example shows how to add authentication in a Ingress rule using a secret that contains
+                            a file generated with htpasswd.
+                        </div>
+                    </div>
+                    <a class="btn btn-danger pull-right read-more" href="/post/629/"
+                       title="详细阅读  This example shows how to add authentication in a Ingress rule using a secret that contains a file generated with htpasswd.">阅读全文
+                        <span class="badge">31</span></a>
+                </div>
+                <div class="article well clearfix">
+                    <div class="data-article hidden-xs">
+                        <span class="month">01月</span>
+                        <span class="day">20</span>
+                    </div>
+                    <div class="title-article">
+                        <h1>
+                            <a class="blog-title" href="/post/628/">Kubernetes + Dashboard + Heapster (四) 慢慢填坑 </a></h1>
+                    </div>
+                    <div class="tag-article container">
+                        <span class="label label-zan"><i class="fa fa-tags"></i>kubernetes <a href="/post/628/"
+                                                                                              title="Kubernetes + Dashboard + Heapster (四) 慢慢填坑"
+                                                                                              rel="category tag"></a></span>
+                        <span class="label label-zan"><i class="fa fa-user"></i> <a href="#" title="由medivh发布"
+                                                                                    rel="author">jack</a></span>
+                        <span class="label label-zan"><i class="fa fa-eye"></i> <a>6</a> views</span>
+                    </div>
+                    <div class="content-article">
+                        <figure class="thumbnail"><a href="/post/628/"></a>
+                        </figure>
+                        <div class="alert alert-zan">
+                            前段时间再次研究了一下kubernetes，总结一下填填从前的坑。
+                        </div>
+                    </div>
+                    <a class="btn btn-danger pull-right read-more" href="/post/628/"
+                       title="详细阅读  前段时间再次研究了一下kubernetes，总结一下填填从前的坑。">阅读全文 <span class="badge">6</span></a>
+                </div>
+                <div class="article well clearfix">
+                    <div class="data-article hidden-xs">
+                        <span class="month">01月</span>
+                        <span class="day">20</span>
+                    </div>
+                    <div class="title-article">
+                        <h1>
+                            <a class="blog-title" href="/post/627/">Kubernetes + Dashboard + Heapster (三)
+                                nginx-ingress负载均衡 </a></h1>
+                    </div>
+                    <div class="tag-article container">
+                        <span class="label label-zan"><i class="fa fa-tags"></i>kubernetes <a href="/post/627/"
+                                                                                              title="Kubernetes + Dashboard + Heapster (三) nginx-ingress负载均衡"
+                                                                                              rel="category tag"></a></span>
+                        <span class="label label-zan"><i class="fa fa-user"></i> <a href="#" title="由medivh发布"
+                                                                                    rel="author">jack</a></span>
+                        <span class="label label-zan"><i class="fa fa-eye"></i> <a>202</a> views</span>
+                    </div>
+                    <div class="content-article">
+                        <figure class="thumbnail"><a href="/post/627/"></a>
+                        </figure>
+                        <div class="alert alert-zan">
+                            Kubernetes关于服务的暴露主要是通过NodePort方式，通过绑定minion主机的某个端口,然后进行pod的请求转发和负载均衡。,Nginx很好的解决了这个需求，但问题是如果有新的服务加入，如何去修改Nginx的配置，并且加载这些配置？
+                            Kubernetes给出的方案就是Ingress,Ingress包含了两大主件Ingress Controller和Ingress。
+                        </div>
+                    </div>
+                    <a class="btn btn-danger pull-right read-more" href="/post/627/"
+                       title="详细阅读  Kubernetes关于服务的暴露主要是通过NodePort方式，通过绑定minion主机的某个端口,然后进行pod的请求转发和负载均衡。,Nginx很好的解决了这个需求，但问题是如果有新的服务加入，如何去修改Nginx的配置，并且加载这些配置？ Kubernetes给出的方案就是Ingress,Ingress包含了两大主件Ingress Controller和Ingress。">阅读全文
+                        <span class="badge">202</span></a>
+                </div>
+                <div class="article well clearfix">
+                    <div class="data-article hidden-xs">
+                        <span class="month">01月</span>
+                        <span class="day">17</span>
+                    </div>
+                    <div class="title-article">
+                        <h1>
+                            <a class="blog-title" href="/post/626/">Kubernetes + Dashboard + Heapster (一) 安装配置 </a></h1>
+                    </div>
+                    <div class="tag-article container">
+                        <span class="label label-zan"><i class="fa fa-tags"></i>kubernetes <a href="/post/626/"
+                                                                                              title="Kubernetes + Dashboard + Heapster  (一)  安装配置"
+                                                                                              rel="category tag"></a></span>
+                        <span class="label label-zan"><i class="fa fa-user"></i> <a href="#" title="由medivh发布"
+                                                                                    rel="author">jack</a></span>
+                        <span class="label label-zan"><i class="fa fa-eye"></i> <a>128</a> views</span>
+                    </div>
+                    <div class="content-article">
+                        <figure class="thumbnail"><a href="/post/626/"></a>
+                        </figure>
+                        <div class="alert alert-zan">
+                            Kubernetes（k8s）是自动化容器操作的开源平台，这些操作包括部署，调度和节点集群间扩展。如果你曾经用过Docker容器技术部署容器，那么可以将Docker看成Kubernetes内部使用的低级别组件。Kubernetes不仅仅支持Docker，还支持Rocket，这是另一种容器技术。
+                        </div>
+                    </div>
+                    <a class="btn btn-danger pull-right read-more" href="/post/626/"
+                       title="详细阅读  Kubernetes（k8s）是自动化容器操作的开源平台，这些操作包括部署，调度和节点集群间扩展。如果你曾经用过Docker容器技术部署容器，那么可以将Docker看成Kubernetes内部使用的低级别组件。Kubernetes不仅仅支持Docker，还支持Rocket，这是另一种容器技术。">阅读全文
+                        <span class="badge">128</span></a>
+                </div>
+                <div class="article well clearfix">
+                    <div class="data-article hidden-xs">
+                        <span class="month">01月</span>
+                        <span class="day">15</span>
+                    </div>
+                    <div class="title-article">
+                        <h1>
+                            <a class="blog-title" href="/post/625/">Kubernetes + Dashboard + Heapster (二) 监控部署 </a></h1>
+                    </div>
+                    <div class="tag-article container">
+                        <span class="label label-zan"><i class="fa fa-tags"></i>kubernetes <a href="/post/625/"
+                                                                                              title="Kubernetes + Dashboard + Heapster (二) 监控部署"
+                                                                                              rel="category tag"></a></span>
+                        <span class="label label-zan"><i class="fa fa-user"></i> <a href="#" title="由medivh发布"
+                                                                                    rel="author">jack</a></span>
+                        <span class="label label-zan"><i class="fa fa-eye"></i> <a>235</a> views</span>
+                    </div>
+                    <div class="content-article">
+                        <figure class="thumbnail"><a href="/post/625/"></a>
+                        </figure>
+                        <div class="alert alert-zan">
+                            Heapster原生支持K8s(v1.0.6及以后版本)和CoreOS，并且支持多种存储后端，比如：InfluxDB、ElasticSearch、Kafka等，这个风格和k8s的确很像：功能先不管完善与否，先让自己在各个平台能用起来再说。这里使用的数据存储后端是InfluxDB。
+                        </div>
+                    </div>
+                    <a class="btn btn-danger pull-right read-more" href="/post/625/"
+                       title="详细阅读  Heapster原生支持K8s(v1.0.6及以后版本)和CoreOS，并且支持多种存储后端，比如：InfluxDB、ElasticSearch、Kafka等，这个风格和k8s的确很像：功能先不管完善与否，先让自己在各个平台能用起来再说。这里使用的数据存储后端是InfluxDB。">阅读全文
+                        <span class="badge">235</span></a>
+                </div>
+                <div class="article well clearfix">
+                    <div class="data-article hidden-xs">
+                        <span class="month">12月</span>
+                        <span class="day">29</span>
+                    </div>
+                    <div class="title-article">
+                        <h1>
+                            <a class="blog-title" href="/post/624/">Shadowsocks 一键部署 </a></h1>
+                    </div>
+                    <div class="tag-article container">
+                        <span class="label label-zan"><i class="fa fa-tags"></i>其它 <a href="/post/624/"
+                                                                                      title="Shadowsocks 一键部署"
+                                                                                      rel="category tag"></a></span>
+                        <span class="label label-zan"><i class="fa fa-user"></i> <a href="#" title="由medivh发布"
+                                                                                    rel="author">jack</a></span>
+                        <span class="label label-zan"><i class="fa fa-eye"></i> <a>19</a> views</span>
+                    </div>
+                    <div class="content-article">
+                        <figure class="thumbnail"><a href="/post/624/"></a>
+                        </figure>
+                        <div class="alert alert-zan">
+                            没事的时候搭建个ss服务器玩！！！
+                        </div>
+                    </div>
+                    <a class="btn btn-danger pull-right read-more" href="/post/624/" title="详细阅读  没事的时候搭建个ss服务器玩！！！">阅读全文
+                        <span class="badge">19</span></a>
+                </div>
+                <div class="article well clearfix">
+                    <div class="data-article hidden-xs">
+                        <span class="month">12月</span>
+                        <span class="day">06</span>
+                    </div>
+                    <div class="title-article">
+                        <h1>
+                            <a class="blog-title" href="/post/623/">html 基础 —— 基本标签（一） </a></h1>
+                    </div>
+                    <div class="tag-article container">
+
+                        <span class="label label-zan"><i class="fa fa-tags"></i>Python <a href="/post/623/"
+                                                                                          title="html 基础 —— 基本标签（一）"
+                                                                                          rel="category tag"></a></span>
+                        <span class="label label-zan"><i class="fa fa-user"></i> <a href="#" title="由medivh发布"
+                                                                                    rel="author">jack</a></span>
+                        <span class="label label-zan"><i class="fa fa-eye"></i> <a>4</a> views</span>
+                    </div>
+                    <div class="content-article">
+                        <figure class="thumbnail"><a href="/post/623/"></a>
+                        </figure>
+                        <div class="alert alert-zan">
+                            简单介绍HTML常用标签的用途和使用方式
+                        </div>
+                    </div>
+                    <a class="btn btn-danger pull-right read-more" href="/post/623/" title="详细阅读  简单介绍HTML常用标签的用途和使用方式">阅读全文
+                        <span class="badge">4</span></a>
+                </div>
+                <div style="float: right;margin-top: -20px;">
+                    <nav>
+                        <ul class="pagination">
+                            <li class="active"><a href="?page=1">1</a></li>
+                            <li><a href="?page=2">2</a></li>
+                            <li><a href="?page=3">3</a></li>
+                            <li><a href="?page=4">4</a></li>
+                            <li><a href="?page=5">5</a></li>
+                            <li class="">
+                                <a href="?page=2" aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>About</h4>
+                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
+                    fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
+            <div class="sidebar-module">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">March 2014</a></li>
+                    <li><a href="#">February 2014</a></li>
+                    <li><a href="#">January 2014</a></li>
+                    <li><a href="#">December 2013</a></li>
+                    <li><a href="#">November 2013</a></li>
+                    <li><a href="#">October 2013</a></li>
+                    <li><a href="#">September 2013</a></li>
+                    <li><a href="#">August 2013</a></li>
+                    <li><a href="#">July 2013</a></li>
+                    <li><a href="#">June 2013</a></li>
+                    <li><a href="#">May 2013</a></li>
+                    <li><a href="#">April 2013</a></li>
+                </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Elsewhere</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ol>
+            </div>
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<footer class="blog-footer">
+    <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a
+            href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>
+        <a href="#">Back to top</a>
+    </p>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
